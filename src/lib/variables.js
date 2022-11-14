@@ -2,10 +2,9 @@ import { sluggify } from './utils';
 
 const dev = process.env.NODE_ENV === 'development';
 const basePath = 'http://localhost:1337';
-const apiPath = 'http://localhost:1337/api';
-// const apiPath = dev
-// 	? 'http://localhost:1337/api'
-// 	: 'https://pechtold-architekten-cms-production.up.railway.app/api';
+const apiPath = dev
+	? 'http://localhost:1337/api'
+	: 'https://kapt-cms-production.up.railway.app//api';
 
 const getSlugsToIdsMapping = async (route, fieldToGetSlugFrom) => {
 	const response = await fetch(`${apiPath}/${route}?pagination[pageSize]=100`);
