@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	// import SvelteMarkdown from 'svelte-markdown';
 	import { variables } from '$lib/variables';
 	import { title } from '$lib/utils';
@@ -13,4 +13,6 @@
 
 <h1>{presentation.Title}</h1>
 <p>{presentation.Description}</p>
-<img src={`${variables.basePath}${presentation.PresentationPictures.data[0].attributes.url}`} />
+{#if presentation.PresentationPictures.data}
+	<img src={`${variables.basePath}${presentation.PresentationPictures.data[0].attributes.url}`} />
+{/if}
