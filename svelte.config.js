@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
+import preprocess from "svelte-preprocess";
 
 const config = {
 	kit: {
@@ -8,6 +9,11 @@ const config = {
 			assets: 'static',
 		},
 	},
+	preprocess: [
+		preprocess({
+			postcss: true,
+		}),
+	],
 };
 
 export default config;
