@@ -13,12 +13,13 @@
 
   $: getLocalizedSlug = (slug, lang=(isEnglish ? 'en' : 'fr')) => {
     console.log(slug);
-    slug = slug === '' ? '/' : slug;
+    
     return base + variables.localizedSlugs[slug][lang];
   }
 
   $: getTranslatedSlug = () => {
-    const currentPath = $page.url.pathname.replace(base, '');
+    let currentPath = $page.url.pathname.replace(base, '');
+    currentPath = currentPath === '' ? '/' : currentPath;
     const lang = isEnglish ? 'fr' : 'en';
     return getLocalizedSlug(variables.inverseSlugMap[currentPath], lang);
   }
