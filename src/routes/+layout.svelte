@@ -1,18 +1,15 @@
 <script>
   import "../app.css";
   import { base } from '$app/paths';
-  import { variables } from '$lib/variables';
-  // import { title } from '$lib/utils';
+  import { title } from '$lib/utils';
+  import NavLink from "../lib/NavLink.svelte";
 
   export let data;
   let {logo} = data;
-
-  console.log(logo)
-  
 </script>
 
 <svelte:head>
-  <!-- <title>{$title}</title> -->
+  <title>{$title}</title>
 </svelte:head>
 
 <div class="app">
@@ -21,13 +18,13 @@
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <a class="hover:italic" href="{base}/philosophie">Philosophie</a>
+        <NavLink href="{base}/philosophie">Philosophie</NavLink>
       </li>
       <li class="py-1">
-        <a class="hover:italic" href="{base}/projets">Projets</a>
+        <NavLink href="{base}/projets">Projets</NavLink>
       </li>
       <li class="py-1">
-        <a class="hover:italic" href="{base}/contact">Contact</a>
+        <NavLink href="{base}/contact">Contact</NavLink>
       </li>
     </ul>
   </aside>
