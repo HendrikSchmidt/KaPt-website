@@ -1,2 +1,17 @@
-<h1>Welcome to KaPt</h1>
-<p>Visit <a href="/presentation">presentation</a> to learn more about us.</p>
+<script>
+	import { variables } from '$lib/variables';
+	import { title } from '$lib/utils';
+
+	export let data;
+	let home = data.home;
+	let logo = data.logo;
+    
+    console.log(home);
+    console.log(logo);
+
+	title.set('KaPt');
+</script>
+
+<div class="mt-24 flex justify-center">
+    <img src={logo.Large.data.attributes.url} alt="logo" />
+</div>
