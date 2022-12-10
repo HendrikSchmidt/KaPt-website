@@ -9,7 +9,7 @@
   title.set('Philosophie');
 </script>
 
-<div class="prose prose-sm">
+<div class="prose prose-sm my-36">
   <SvelteMarkdown source={philosophy.Philosophie} options={variables.markdownOptions} />
   {#each philosophy.Biographies as biographie, index (biographie.id)}
     <div class="my-24 flex space-between relative">

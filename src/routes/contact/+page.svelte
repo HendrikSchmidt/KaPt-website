@@ -9,6 +9,8 @@
   title.set('Contact');
 </script>
 
-<div class="prose prose-sm">
-  <SvelteMarkdown source={contact.Contact} options={variables.markdownOptions} />
+<div class="prose prose-sm flex flex-col justify-center min-h-screen">
+  <div>
+    <SvelteMarkdown source={contact.Contact} options={variables.markdownOptions} />
+  </div>
 </div>
