@@ -4,24 +4,36 @@
   import { title } from '$lib/utils';
 
   export let data;
-  let about = data.about;
+  let projects = data.projects;
 
-  console.log(about);
+  console.log(projects);
 
-  title.set('about');
+  title.set('Projets');
+
+  projects = projects.map(project => {
+    let shortDescription = project.attributes.Description.slice(0, 500);
+    console.log(shortDescription)
+    shortDescription = `${shortDescription.slice(0, shortDescription.lastIndexOf(' '))} ...`;
+    return {
+      ...project,
+      attributes: {
+        ...project.attributes,
+        shortDescription
+      }
+    };
+  });
 </script>
 
-<h1>{about.Title}</h1>
-<SvelteMarkdown source={about.APropos} options={variables.markdownOptions} />
-{#each about.Biographie as biographie, index (biographie.id)}
+{#each projects as project, index (project.id)}
   <div class="my-24 flex flex-row justify-around">
     <div class="w-3/12 pt-6">
-      <img src={biographie.Portrait.data.attributes.url} alt={biographie.Portrait.data.attributes.url} />
+      <!-- <img src={project.attributes.Portrait.data.attributes.url} alt={biographie.Portrait.data.attributes.url} /> -->
     </div>
-    <div class="w-6/12">
-      <h2>{biographie.Nom}</h2>
-      <p class="font-semibold">{biographie.Position}</p>
-      <SvelteMarkdown source={biographie.Description} options={variables.markdownOptions} />
+    <div class="w-6/12 prose-sm">
+      <h2>{project.attributes.Nom}</h2>
+      <p class="font-semibold">{project.attributes.Localisation}</p>
+      <p class="font-semibold">{project.attributes.Surface} m<sup>2</sup></p>
+      <SvelteMarkdown source={project.attributes.shortDescription} options={variables.markdownOptions} />
     </div>
   </div>
 {/each}
