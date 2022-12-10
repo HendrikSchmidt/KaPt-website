@@ -6,15 +6,12 @@ function createTitle() {
 	return {
 		subscribe,
 		set: (value) => {
-			set(`${value} • Pechtold Architekten`);
+			set(`${value} • KaPt`);
 		},
 		clear: () => {
-			set('Pechtold Architekten');
+			set('KaPt');
 		},
 	};
 }
 
 export const title = createTitle();
-
-export const sluggify = (string) => string.replaceAll(' ', '_');
-export const desluggify = (string) => string.replaceAll('_', ' ');
