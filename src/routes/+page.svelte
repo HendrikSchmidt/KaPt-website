@@ -3,10 +3,13 @@
 
 	export let data;
 	let home = data.home;
+	let projects = data.projects;
 
 	title.set('KaPt');
+    const firstProject = projects[0].attributes;
+    const firstImage = firstProject.Images.data[0].attributes;
 </script>
 
-<div class="mt-24 flex justify-center">
-    <!-- <img src={logo.Large.data.attributes.url} alt="logo" /> -->
+<div class="min-h-screen">
+    <img src={firstImage.url} alt={firstImage.alternativeText} />
 </div>
