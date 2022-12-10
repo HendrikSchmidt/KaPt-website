@@ -34,4 +34,18 @@ export const variables = {
 	},
 	localizedSlugs,
 	inverseSlugMap,
+	localization: {
+		philosophy: {
+			en: 'Philosophy',
+			fr: 'Philosophie',
+		},
+		projects: {
+			en: 'Projects',
+			fr: 'Projets',
+		},
+		contact: {
+			en: 'Contact',
+			fr: 'Contact',
+		},
+	},
 };

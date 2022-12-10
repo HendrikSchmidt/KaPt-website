@@ -10,10 +10,13 @@
   let {logo} = data;
 
   $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
+  $: currentLang = isEnglish ? 'en' : 'fr';
+  
+  $: getLocalizedString = (key) => {
+    return variables.localization[key][currentLang];
+  }
 
-  $: getLocalizedSlug = (slug, lang=(isEnglish ? 'en' : 'fr')) => {
-    console.log(slug);
-    
+  $: getLocalizedSlug = (slug, lang=currentLang) => {
     return base + variables.localizedSlugs[slug][lang];
   }
 
@@ -35,13 +38,13 @@
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('philosophy')}">Philosophie</NavLink>
+        <NavLink href="{getLocalizedSlug('philosophy')}">{getLocalizedString('philosophy')}</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('projects')}">Projets</NavLink>
+        <NavLink href="{getLocalizedSlug('projects')}">{getLocalizedString('projects')}</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('contact')}">Contact</NavLink>
+        <NavLink href="{getLocalizedSlug('contact')}">{getLocalizedString('contact')}</NavLink>
       </li>
     </ul>
   </aside>
@@ -51,7 +54,7 @@
   </main>
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
-    {#if $page.url.pathname.startsWith('/en')}
+    {#if $page.url.pathname.startsWith(`${base}/en`)}
       <a href="{getTranslatedSlug()}">FR</a> / <span class="underline">EN</span>
     {:else}
       <span class="underline">FR</span> / <a href="{getTranslatedSlug()}">EN</a>
