@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import { base } from '$app/paths';
   import { variables } from '$lib/variables';
   // import { title } from '$lib/utils';
 
@@ -16,17 +17,17 @@
 
 <div class="app">
   <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
-    <a class="logo text-8xl" href="/">KaPt</a>
+    <a class="logo text-8xl" href="{base}/">KaPt</a>
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <a class="hover:italic" href="/philosophie">Philosophie</a>
+        <a class="hover:italic" href="{base}/philosophie">Philosophie</a>
       </li>
       <li class="py-1">
-        <a class="hover:italic" href="/projets">Projets</a>
+        <a class="hover:italic" href="{base}/projets">Projets</a>
       </li>
       <li class="py-1">
-        <a class="hover:italic" href="/contact">Contact</a>
+        <a class="hover:italic" href="{base}/contact">Contact</a>
       </li>
     </ul>
   </aside>
@@ -36,7 +37,7 @@
   </main>
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
-    <a href="/">FR</a> / <a class="text-gray-400" href="/en">EN</a>
+    <a href="{base}/">FR</a> / <a class="text-gray-400" href="/en">EN</a>
   </div>
 </div>
 
