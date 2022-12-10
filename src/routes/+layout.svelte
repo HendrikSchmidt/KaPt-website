@@ -1,11 +1,13 @@
 <script>
   import "../app.css";
+  import { page } from '$app/stores';
   import { base } from '$app/paths';
   import { title } from '$lib/utils';
   import NavLink from "../lib/NavLink.svelte";
 
   export let data;
   let {logo} = data;
+
 </script>
 
 <svelte:head>
@@ -34,7 +36,11 @@
   </main>
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
-    <a href="{base}/">FR</a> / <a class="text-gray-400" href="{base}/">EN</a>
+    {#if $page.url.pathname.startsWith('/en')}
+      <a href="{base}/">FR</a> / <span class="underline">EN</span>
+    {:else}
+      <span class="underline">FR</span> / <a href="{base}/en">EN</a>
+    {/if}
   </div>
 </div>
 
