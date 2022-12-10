@@ -37,7 +37,7 @@
   </main>
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
-    <a href="{base}/">FR</a> / <a class="text-gray-400" href="/en">EN</a>
+    <a href="{base}/">FR</a> / <a class="text-gray-400" href="{base}/en">EN</a>
   </div>
 </div>
 
