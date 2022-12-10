@@ -6,13 +6,10 @@
   export let data;
   let projects = data.projects;
 
-  console.log(projects);
-
   title.set('Projets');
 
   projects = projects.map(project => {
     let shortDescription = project.attributes.Description.slice(0, 500);
-    console.log(shortDescription)
     shortDescription = `${shortDescription.slice(0, shortDescription.lastIndexOf(' '))} ...`;
     return {
       ...project,

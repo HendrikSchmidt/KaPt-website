@@ -9,7 +9,10 @@ const config = {
 
 		files: {
 			assets: 'static',
-			basePath: dev ? '' : '/KaPt-website',
+		},
+
+		paths: {
+			base: dev ? '' : '/KaPt-website',
 		},
 	},
 	preprocess: [
