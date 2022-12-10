@@ -14,23 +14,33 @@
 </svelte:head>
 
 <div class="app">
-  <header class="flex flex-row justify-between items-center p-2 border-black border-b-4 font-semibold text-4xl">
-    <a class="logo pr-3" href="/">
-      <img class="h-12" src={logo.Small.data.attributes.url} alt="logo" />
-    </a>
+  <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
+    <a class="logo text-8xl" href="/">KaPt</a>
 
-    <div>
-      <a class="logo w-1/3 px-2 hover:italic" href="/a-propos">A Propos</a>
-      <a class="logo w-1/3 px-2 hover:italic" href="/projets">Projets</a>
-      <a class="logo w-1/3 px-2 hover:italic" href="/contact">Contact</a>
-    </div>
-    
-    <div class="language-toggle justify-self-end" >
-      <a class="font-mono italic hover:not-italic" href="/">EN</a>
-    </div>
-  </header>
+    <ul class="text-2xl font-extralight uppercase">
+      <li class="py-1">
+        <a class="hover:italic" href="/philosophie">Philosophie</a>
+      </li>
+      <li class="py-1">
+        <a class="hover:italic" href="/projets">Projets</a>
+      </li>
+      <li class="py-1">
+        <a class="hover:italic" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </aside>
 
-  <main class="m-12 prose max-w-none">
+  <main class="ml-80 my-36 m-12">
     <slot />
   </main>
+
+  <div class="fixed top-0 right-0 p-3 text-2xl" >
+    <a href="/">FR</a> / <a class="text-gray-400" href="/en">EN</a>
+  </div>
 </div>
+
+<style>
+  .logo {
+    font-family: 'ArchivoBlack';
+  }
+</style>
