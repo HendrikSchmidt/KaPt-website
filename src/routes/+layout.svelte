@@ -9,24 +9,19 @@
   export let data;
   let {logo} = data;
 
+  console.log(variables.inverseSlugMap);
+  console.log(variables.localizedSlugs);
+
   $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
 
-  $: getSlugFromMap = (slug) => {
-    return variables.slugMap[slug] ? variables.slugMap[slug] : slug;
-  }
-
-  $: getLocalizedSlug = (slug) => {
-    return base + (isEnglish ? `/en${getSlugFromMap(slug)}` : slug);
+  $: getLocalizedSlug = (slug, lang=(isEnglish ? 'en' : 'fr')) => {
+    return base + variables.localizedSlugs[slug][lang];
   }
 
   $: getTranslatedSlug = () => {
-    const currentPath = $page.url.pathname;
-    if (isEnglish) {
-      let slug = currentPath.replace('/en', '');
-      if (slug === '') slug = '/';
-      return base + getSlugFromMap(slug);
-    }
-    return `/en${getSlugFromMap(currentPath)}`;
+    const currentPath = $page.url.pathname.replace(base, '');
+    const lang = isEnglish ? 'fr' : 'en';
+    return getLocalizedSlug(variables.inverseSlugMap[currentPath], lang);
   }
 </script>
 
@@ -36,17 +31,17 @@
 
 <div class="app">
   <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
-    <a class="logo text-8xl" href="{getLocalizedSlug('/')}">KaPt</a>
+    <a class="logo text-8xl" href="{getLocalizedSlug('home')}">KaPt</a>
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('/philosophie')}">Philosophie</NavLink>
+        <NavLink href="{getLocalizedSlug('philosophy')}">Philosophie</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('/projets')}">Projets</NavLink>
+        <NavLink href="{getLocalizedSlug('projects')}">Projets</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('/contact')}">Contact</NavLink>
+        <NavLink href="{getLocalizedSlug('contact')}">Contact</NavLink>
       </li>
     </ul>
   </aside>
