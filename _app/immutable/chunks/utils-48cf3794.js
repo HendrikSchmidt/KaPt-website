@@ -1,1 +1,0 @@
-import{w as c}from"./index-33117e8c.js";function i(){const{subscribe:e,set:t}=c("");return{subscribe:e,set:r=>{t(`${r} • Pechtold Architekten`)},clear:()=>{t("Pechtold Architekten")}}}const s=i();export{s as t};
