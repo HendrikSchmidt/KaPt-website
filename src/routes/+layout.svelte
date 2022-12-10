@@ -9,12 +9,11 @@
   export let data;
   let {logo} = data;
 
-  console.log(variables.inverseSlugMap);
-  console.log(variables.localizedSlugs);
-
   $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
 
   $: getLocalizedSlug = (slug, lang=(isEnglish ? 'en' : 'fr')) => {
+    console.log(slug);
+    slug = slug === '' ? '/' : slug;
     return base + variables.localizedSlugs[slug][lang];
   }
 
