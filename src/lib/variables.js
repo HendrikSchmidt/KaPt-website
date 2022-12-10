@@ -5,4 +5,11 @@ export const variables = {
 	markdownOptions: {
 		breaks: true,
 	},
+	slugMap: {
+		'/projets': '/projects',
+		'/projects': '/projets',
+		'/contact': '/contact',
+		'/philosophie': '/philosophy',
+		'/philosophy': '/philosophie',
+	},
 };

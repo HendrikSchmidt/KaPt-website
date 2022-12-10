@@ -3,11 +3,31 @@
   import { page } from '$app/stores';
   import { base } from '$app/paths';
   import { title } from '$lib/utils';
+  import { variables } from '$lib/variables';
   import NavLink from "../lib/NavLink.svelte";
 
   export let data;
   let {logo} = data;
 
+  $: isEnglish = $page.url.pathname.startsWith('/en');
+
+  $: getSlugFromMap = (slug) => {
+    return variables.slugMap[slug] ? variables.slugMap[slug] : slug;
+  }
+
+  $: getLocalizedSlug = (slug) => {
+    return isEnglish ? `/en${getSlugFromMap(slug)}` : slug;
+  }
+
+  $: getTranslatedSlug = () => {
+    const currentPath = $page.url.pathname;
+    if (isEnglish) {
+      let slug = currentPath.replace('/en', '');
+      if (slug === '') slug = '/';
+      return getSlugFromMap(slug);
+    }
+    return `/en${getSlugFromMap(currentPath)}`;
+  }
 </script>
 
 <svelte:head>
@@ -16,17 +36,17 @@
 
 <div class="app">
   <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
-    <a class="logo text-8xl" href="{base}/">KaPt</a>
+    <a class="logo text-8xl" href="{base}{getLocalizedSlug('/')}">KaPt</a>
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <NavLink href="{base}/philosophie">Philosophie</NavLink>
+        <NavLink href="{base}{getLocalizedSlug('/philosophie')}">Philosophie</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{base}/projets">Projets</NavLink>
+        <NavLink href="{base}{getLocalizedSlug('/projets')}">Projets</NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{base}/contact">Contact</NavLink>
+        <NavLink href="{base}{getLocalizedSlug('/contact')}">Contact</NavLink>
       </li>
     </ul>
   </aside>
@@ -37,9 +57,9 @@
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
     {#if $page.url.pathname.startsWith('/en')}
-      <a href="{base}/">FR</a> / <span class="underline">EN</span>
+      <a href="{base}{getTranslatedSlug()}">FR</a> / <span class="underline">EN</span>
     {:else}
-      <span class="underline">FR</span> / <a href="{base}/en">EN</a>
+      <span class="underline">FR</span> / <a href="{base}{getTranslatedSlug()}">EN</a>
     {/if}
   </div>
 </div>
