@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import { variables } from '$lib/variables';
   // import { title } from '$lib/utils';
 
   export let data;
@@ -30,7 +31,7 @@
     </ul>
   </aside>
 
-  <main class="ml-80 my-36 m-12">
+  <main class="ml-80 mr-12">
     <slot />
   </main>
 
