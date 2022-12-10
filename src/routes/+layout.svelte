@@ -26,7 +26,7 @@
       if (slug === '') slug = '/';
       return base + getSlugFromMap(slug);
     }
-    return `${base}/en${getSlugFromMap(currentPath)}`;
+    return `/en${getSlugFromMap(currentPath)}`;
   }
 </script>
 
