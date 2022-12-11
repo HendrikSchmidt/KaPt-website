@@ -1,16 +1,11 @@
 <script>
-  import SvelteMarkdown from 'svelte-markdown';
-  import { variables } from '$lib/variables';
   import { title } from '$lib/utils';
+  import Contact from '$lib/components/Contact.svelte';
 
   export let data;
-  let contact = data.contact;
+  let { contact } = data;
 
   title.set('Contact');
 </script>
 
-<div class="prose prose-sm flex flex-col justify-center min-h-screen">
-  <div>
-    <SvelteMarkdown source={contact.Contact} options={variables.markdownOptions} />
-  </div>
-</div>
+<Contact {contact} />

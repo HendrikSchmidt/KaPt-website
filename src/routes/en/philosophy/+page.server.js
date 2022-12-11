@@ -1,16 +1,5 @@
-import { variables } from '$lib/variables';
+import { loadDataFromApi } from '$lib/utils';
 
-export async function load() {
-	const response = await fetch(`${variables.apiPath}/philosophy?populate[Biographies][populate][0]=Portrait`);
-	const philosophyData = await response.json();
-
-	if (philosophyData) {
-		return {
-			philosophy: philosophyData.data.attributes,
-		};
-	}
-
-	return {
-		status: 404,
-	};
-}
+export const load = async ({ fetch }) => ({
+	philosophy: loadDataFromApi(fetch, '/philosophy?populate[Biographies][populate][0]=Portrait&locale=en'),
+});

@@ -1,12 +1,7 @@
 export const prerender = true;
 
-import { variables } from '$lib/variables';
+import { loadDataFromApi } from '$lib/utils';
 
-export async function load({ fetch }) {
-    const response = await fetch(`${variables.apiPath}/logo?populate=*`);
-    const logoData = await response.json();
-
-    return {
-        logo: logoData.data.attributes,
-    };
-}
+export const load = ({ fetch }) => ({
+    logo: loadDataFromApi(fetch, '/logo?populate=*'),
+});

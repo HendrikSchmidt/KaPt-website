@@ -1,16 +1,5 @@
-import { variables } from '$lib/variables';
+import { loadDataFromApi } from '$lib/utils';
 
-export async function load() {
-	const response = await fetch(`${variables.apiPath}/projects?populate=*`);
-	const projectsData = await response.json();
-
-	if (projectsData) {
-		return {
-			projects: projectsData.data,
-		};
-	}
-
-	return {
-		status: 404,
-	};
-}
+export const load = ({ fetch }) => ({
+	projects: loadDataFromApi(fetch, '/projects?populate=*&locale=en'),
+});

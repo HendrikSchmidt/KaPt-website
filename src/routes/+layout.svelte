@@ -4,10 +4,10 @@
   import { base } from '$app/paths';
   import { title } from '$lib/utils';
   import { variables } from '$lib/variables';
-  import NavLink from "../lib/NavLink.svelte";
+  import NavLink from "../lib/components/NavLink.svelte";
 
   export let data;
-  let {logo} = data;
+  let { logo } = data;
 
   $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
   $: currentLang = isEnglish ? 'en' : 'fr';

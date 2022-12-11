@@ -1,4 +1,4 @@
-const apiPath = 'https://kapt-cms-production.up.railway.app/api';
+const apiBase = 'https://kapt-cms-production.up.railway.app/api';
 
 
 const localizedSlugs = {
@@ -28,7 +28,7 @@ for (const [key, slugMap] of Object.entries(localizedSlugs)) {
 }
 
 export const variables = {
-	apiPath,
+	apiBase,
 	markdownOptions: {
 		breaks: true,
 	},
