@@ -1,6 +1,3 @@
-const apiBase = 'https://kapt-cms-production.up.railway.app/api';
-
-
 const localizedSlugs = {
 	home: {
 		en: '/en',
@@ -27,8 +24,7 @@ for (const [key, slugMap] of Object.entries(localizedSlugs)) {
 	}
 }
 
-export const variables = {
-	apiBase,
+const i18n = {
 	markdownOptions: {
 		breaks: true,
 	},
@@ -49,3 +45,5 @@ export const variables = {
 		},
 	},
 };
+
+export default i18n;

@@ -3,7 +3,7 @@
   import { page } from '$app/stores';
   import { base } from '$app/paths';
   import { title } from '$lib/utils';
-  import { variables } from '$lib/variables';
+  import i18n from '$lib/i18n';
   import NavLink from "../lib/components/NavLink.svelte";
 
   export let data;
@@ -13,18 +13,18 @@
   $: currentLang = isEnglish ? 'en' : 'fr';
   
   $: getLocalizedString = (key) => {
-    return variables.localization[key][currentLang];
+    return i18n.localization[key][currentLang];
   }
 
   $: getLocalizedSlug = (slug, lang=currentLang) => {
-    return base + variables.localizedSlugs[slug][lang];
+    return base + i18n.localizedSlugs[slug][lang];
   }
 
   $: getTranslatedSlug = () => {
     let currentPath = $page.url.pathname.replace(base, '');
     currentPath = currentPath === '' ? '/' : currentPath;
     const lang = isEnglish ? 'fr' : 'en';
-    return getLocalizedSlug(variables.inverseSlugMap[currentPath], lang);
+    return getLocalizedSlug(i18n.inverseSlugMap[currentPath], lang);
   }
 </script>
 

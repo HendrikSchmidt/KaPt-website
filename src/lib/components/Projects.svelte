@@ -1,6 +1,6 @@
 <script>
   import SvelteMarkdown from 'svelte-markdown';
-  import { variables } from '$lib/variables';
+  import { markdownOptions } from '$lib/utils';
 
   export let projects;
 
@@ -40,7 +40,7 @@
       <p class="font-semibold">{project.attributes.Localisation}</p>
       <p class="font-semibold">{project.attributes.Surface} m<sup>2</sup></p>
       {#if isActive[index]}
-        <SvelteMarkdown source={project.attributes.Description} options={variables.markdownOptions} />
+        <SvelteMarkdown source={project.attributes.Description} options={markdownOptions} />
       {/if}
     </div>
   </div>
