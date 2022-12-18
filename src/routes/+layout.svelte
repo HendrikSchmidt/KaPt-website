@@ -17,11 +17,11 @@
   <title>{$title}</title>
 </svelte:head>
 
-<div class="app">
-  <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
-    <a class="logo text-8xl" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
+<div class="app w-screen">
+  <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-full sm:w-auto sm:h-screen bg-white sm:bg-transparent z-10">
+    <a class="logo text-6xl sm:text-8xl" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
 
-    <ul class="text-2xl font-extralight uppercase">
+    <ul class="sm:text-2xl font-extralight uppercase max-sm:flex max-sm:justify-around w-full">
       <li class="py-1">
         <NavLink href="{i18n.getLocalizedSlug('philosophy', currentLang)}">
           {i18n.getLocalizedString('philosophy', currentLang)}
@@ -40,11 +40,11 @@
     </ul>
   </aside>
 
-  <main class="ml-80 mr-12">
+  <main class="sm:pl-48 lg:pl-96 w-full">
     <slot />
   </main>
 
-  <div class="fixed top-0 right-0 p-3 text-2xl" >
+  <div class="fixed top-0 right-0 p-3 sm:text-2xl z-20" >
     {#if $page.url.pathname.startsWith(`${base}/en`)}
       <a href="{i18n.getTranslatedSlug($page.url.pathname, "fr")}">FR</a> / <span class="underline">EN</span>
     {:else}
