@@ -11,21 +11,6 @@
 
   $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
   $: currentLang = isEnglish ? 'en' : 'fr';
-  
-  $: getLocalizedString = (key) => {
-    return i18n.localization[key][currentLang];
-  }
-
-  $: getLocalizedSlug = (slug, lang=currentLang) => {
-    return base + i18n.localizedSlugs[slug][lang];
-  }
-
-  $: getTranslatedSlug = () => {
-    let currentPath = $page.url.pathname.replace(base, '');
-    currentPath = currentPath === '' ? '/' : currentPath;
-    const lang = isEnglish ? 'fr' : 'en';
-    return getLocalizedSlug(i18n.inverseSlugMap[currentPath], lang);
-  }
 </script>
 
 <svelte:head>
@@ -34,17 +19,23 @@
 
 <div class="app">
   <aside class="fixed top-0 left-0 flex flex-col justify-between p-3 w-80 h-screen">
-    <a class="logo text-8xl" href="{getLocalizedSlug('home')}">KaPt</a>
+    <a class="logo text-8xl" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
 
     <ul class="text-2xl font-extralight uppercase">
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('philosophy')}">{getLocalizedString('philosophy')}</NavLink>
+        <NavLink href="{i18n.getLocalizedSlug('philosophy', currentLang)}">
+          {i18n.getLocalizedString('philosophy', currentLang)}
+        </NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('projects')}">{getLocalizedString('projects')}</NavLink>
+        <NavLink href="{i18n.getLocalizedSlug('projects', currentLang)}">
+          {i18n.getLocalizedString('projects', currentLang)}
+        </NavLink>
       </li>
       <li class="py-1">
-        <NavLink href="{getLocalizedSlug('contact')}">{getLocalizedString('contact')}</NavLink>
+        <NavLink href="{i18n.getLocalizedSlug('contact', currentLang)}">
+          {i18n.getLocalizedString('contact', currentLang)}
+        </NavLink>
       </li>
     </ul>
   </aside>
@@ -55,9 +46,9 @@
 
   <div class="fixed top-0 right-0 p-3 text-2xl" >
     {#if $page.url.pathname.startsWith(`${base}/en`)}
-      <a href="{getTranslatedSlug()}">FR</a> / <span class="underline">EN</span>
+      <a href="{i18n.getTranslatedSlug($page.url.pathname, "fr")}">FR</a> / <span class="underline">EN</span>
     {:else}
-      <span class="underline">FR</span> / <a href="{getTranslatedSlug()}">EN</a>
+      <span class="underline">FR</span> / <a href="{i18n.getTranslatedSlug($page.url.pathname, "en")}">EN</a>
     {/if}
   </div>
 </div>
