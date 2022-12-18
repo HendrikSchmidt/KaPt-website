@@ -5,7 +5,7 @@
     export let philosophy;
 </script>
 
-<div class="prose prose-sm lg:prose-md 2xl:prose-xl my-36 px-4">
+<div class="prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl my-36 px-4">
   <SvelteMarkdown source={philosophy.Philosophie} options={markdownOptions} />
   {#each philosophy.Biographies as biographie, index (biographie.id)}
     <div class="sm:my-24 flex flex-col sm:flex-row sm:space-between sm:relative">

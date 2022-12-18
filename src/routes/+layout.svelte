@@ -40,7 +40,7 @@
     </ul>
   </aside>
 
-  <main class="sm:pl-48 lg:pl-96 w-full">
+  <main class="sm:pl-48 w-full">
     <slot />
   </main>
 

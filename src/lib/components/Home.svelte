@@ -6,5 +6,5 @@
 </script>
 
 <div class="w-full h-screen overflow-hidden">
-    <img class="min-h-screen max-w-none min-w-full" src={firstImage.url} alt={firstImage.alternativeText} />
+    <img class="w-full h-full object-cover" src={firstImage.url} alt={firstImage.alternativeText} />
 </div>
