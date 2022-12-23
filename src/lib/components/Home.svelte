@@ -5,6 +5,6 @@
     const firstImage = firstProject.Images.data[0].attributes;
 </script>
 
-<div class="w-full h-screen overflow-hidden">
+<div class="w-full overflow-hidden">
     <img class="w-full h-full object-cover" src={firstImage.url} alt={firstImage.alternativeText} />
 </div>
