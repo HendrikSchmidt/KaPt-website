@@ -18,7 +18,7 @@
 </svelte:head>
 
 <div class="app w-screen text-zinc-900">
-  <aside class="fixed top-0 left-0 flex flex-wrap	 justify-between p-3 w-full z-10">
+  <aside class="fixed top-0 left-0 flex flex-wrap justify-between p-3 w-full z-10 max-sm:bg-white">
     <a class="logo text-6xl md:text-8xl flex-0" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
 
     <ul class="flex justify-around max-sm:w-full max-sm:py-2 max-sm:order-last sm:flex-1 sm:justify-end lg:text-2xl">
@@ -48,7 +48,7 @@
     </div>
   </aside>
 
-  <main class="px-4 sm:px-8 w-full">
+  <main class="my-48 px-4 sm:px-8 w-full flex flex-col items-center">
     <slot />
   </main>
 </div>
