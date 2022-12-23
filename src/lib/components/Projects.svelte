@@ -33,7 +33,7 @@
       <div class="flex w-full overflow-scroll">
           {#each project.attributes.Images.data as img}
           <div class="flex-none w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8">
-            <img class="project-thumb object-cover" src={img.attributes.url} alt={img.attributes.alternativeText} />
+            <img class="project-thumb object-cover saturate-50 hover:saturate-100" src={img.attributes.url} alt={img.attributes.alternativeText} />
           </div>
           {/each}
           <!-- <img class="project-thumb object-cover" src={project.attributes.Images.data[0].attributes.url} alt={project.attributes.Images.data[0].attributes.alternativeText} /> -->
