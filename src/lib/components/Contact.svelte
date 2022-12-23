@@ -5,8 +5,6 @@
   export let contact;
 </script>
 
-<div class="prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl flex flex-col justify-center min-h-screen">
-  <div>
-    <SvelteMarkdown source={contact.Contact} options={markdownOptions} />
-  </div>
+<div class="prose prose-sm lg:prose-base xl:prose-lg lg:w-1/2">
+  <SvelteMarkdown source={contact.Contact} options={markdownOptions} />
 </div>
