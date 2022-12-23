@@ -21,7 +21,7 @@
   <aside class="fixed top-0 left-0 flex max-sm:flex-col justify-between p-3 w-full z-10">
     <a class="logo text-6xl md:text-8xl flex-0" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
 
-    <ul class="flex-0 md:text-2xl font-extralight flex max-sm:justify-around max-sm:w-full align-right">
+    <ul class="flex-0 lg:text-2xl font-extralight flex max-sm:justify-around max-sm:w-full align-right">
       <li class="px-2 py-1">
         <NavLink href="{i18n.getLocalizedSlug('philosophy', currentLang)}">
           {i18n.getLocalizedString('philosophy', currentLang)}
