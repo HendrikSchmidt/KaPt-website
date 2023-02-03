@@ -49,6 +49,22 @@ const localization = {
     en: 'Contact',
     fr: 'Contact',
   },
+  mail: {
+    en: 'Mail',
+    fr: 'Email',
+  },
+  phone: {
+    en: 'Phone',
+    fr: 'Téléphone',
+  },
+  address: {
+    en: 'Address',
+    fr: 'Adresse',
+  },
+  social: {
+    en: 'Social media',
+    fr: 'Réseaux sociaux',
+  },
 };
 
 

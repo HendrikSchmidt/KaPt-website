@@ -8,4 +8,4 @@
   title.set('Contact');
 </script>
 
-<Contact {contact} />
+<Contact {contact} lang='en' />

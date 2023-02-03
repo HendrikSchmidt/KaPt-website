@@ -9,8 +9,7 @@
   export let data;
   let { logo } = data;
 
-  $: isEnglish = $page.url.pathname.startsWith(`${base}/en`);
-  $: currentLang = isEnglish ? 'en' : 'fr';
+  $: currentLang = $page.url.pathname.startsWith(`${base}/en`) ? 'en' : 'fr';
 </script>
 
 <svelte:head>
