@@ -13,4 +13,7 @@
 .landing-image {
     height: calc(100vh - 14rem);
 }
+img {
+    filter: grayscale(1);
+}
 </style>
