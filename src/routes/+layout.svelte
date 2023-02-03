@@ -48,7 +48,7 @@
     </div>
   </aside>
 
-  <main class="my-48 px-4 sm:px-8 w-full flex flex-col items-center">
+  <main class="mt-40 p-4 sm:p-8 w-full flex flex-col items-center">
     <slot />
   </main>
 </div>
