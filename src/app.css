@@ -12,6 +12,11 @@
     src: url("/ArchivoBlack.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Arimo";
+    src: url("/Arimo.ttf") format("truetype");
+}
+
 body {
-    font-family: "SpaceGrotesk";
+    font-family: "Arimo";
 }
