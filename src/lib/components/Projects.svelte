@@ -22,9 +22,8 @@
   {#each projects as project, index (project.id)}
     <div class="pb-20 cursor-pointer">
       
-      <div class="p-3 mb-2 prose sm:w-2/3 lg:w-1/2 border-t-2 border-zinc-900">
-        <h2 class="mb-0.5">{project.attributes.Nom}</h2>
-        <p class="text-color-zinc-400">{project.attributes.Programme}</p>
+      <div class="py-3 mb-5 prose sm:w-2/3 lg:w-1/2 border-b-2 border-zinc-900">
+        <h2 class="font-normal">{project.attributes.Nom}</h2>
         <!-- <p class="font-semibold">{project.attributes.Localisation}</p>
         <p class="font-semibold">{project.attributes.Surface} m<sup>2</sup></p> -->
         <!-- <SvelteMarkdown source={project.attributes.Description} options={markdownOptions} /> -->
