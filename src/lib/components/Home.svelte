@@ -1,4 +1,6 @@
 <script>
+    import Image from '$lib/components/Image.svelte';
+
 	export let projects;
 
     const firstProject = projects[0].attributes;
@@ -6,7 +8,12 @@
 </script>
 
 <div class="w-full overflow-hidden landing-image">
-    <img class="w-full h-full object-cover object-center saturate-0 transition duration-500 transform hover:scale-110" src={firstImage.url} alt={firstImage.alternativeText} />
+    <Image
+        img={firstImage}
+        sizes="150wv"
+        src="xlarge"
+        classString="w-full h-full object-cover object-center saturate-0 transition duration-500 transform hover:scale-110"
+    />
 </div>
 
 <style>

@@ -1,6 +1,5 @@
 <script>
-  import SvelteMarkdown from 'svelte-markdown';
-  import { markdownOptions } from '$lib/utils';
+  import Image from '$lib/components/Image.svelte';
 
   export let projects;
 
@@ -30,12 +29,22 @@
       </div>
       
       <div class="flex w-full overflow-scroll">
-          {#each project.attributes.Images.data as img}
+          {#each project.attributes.Images.data as img, imgIndex}
           <div class="flex-none w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
-            <img class="w-full h-auto aspect-square object-cover object-center saturate-0 hover:saturate-100 transition duration-500 transform hover:scale-110" src={img.attributes.url} alt={img.attributes.alternativeText} />
+            <Image
+              img={img.attributes}
+              sizes="(max-width: 639px) 90vw,
+                    (max-width: 767px) 75vw,
+                    (max-width: 1023px) 50vw,
+                    (max-width: 1279px) 40vw,
+                    (max-width: 1535px) 30vw,
+                    25vw"
+              src="small"
+              lazy={index > 2 || imgIndex > 6}
+              classString="w-full h-auto aspect-square object-cover object-center saturate-0 hover:saturate-100 transition duration-500 transform hover:scale-110"
+            />
           </div>
           {/each}
-          <!-- <img class="project-thumb object-cover" src={project.attributes.Images.data[0].attributes.url} alt={project.attributes.Images.data[0].attributes.alternativeText} /> -->
       </div>
     </div>
   {/each}
