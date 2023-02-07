@@ -5,8 +5,6 @@
     export let classString = "";
     export let sizes = "100vw";
 
-    console.log(img)
-
     let { formats } = img;
     const scales = {
         small: '500w',
