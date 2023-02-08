@@ -5,7 +5,7 @@
     export let classString = "";
     export let sizes = "100vw";
 
-    let { formats } = img;
+    $: formats = img.formats;
     const scales = {
         small: '500w',
         medium: '750w',
@@ -13,7 +13,7 @@
         xlarge: '1500w',
     };
     const replaceJPGWithWebP = url => url.replace(/\.jpe?g/gi, '.webp');
-    let srcset = Object.entries(scales).filter(([scale]) => formats[scale]).map(([scale, width]) => `${formats[scale].url} ${width}`).join();
+    $: srcset = Object.entries(scales).filter(([scale]) => formats[scale]).map(([scale, width]) => `${formats[scale].url} ${width}`).join();
     srcset += `, ${img.url} 2000w`;
 </script>
 

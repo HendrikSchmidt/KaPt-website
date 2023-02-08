@@ -5,8 +5,6 @@
   export let data;
   let projects = data.projects;
 
-  console.log(data)
-
   title.set('Projets');
 </script>
 

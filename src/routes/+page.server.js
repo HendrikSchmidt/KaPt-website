@@ -1,5 +1,5 @@
 import { loadDataFromApi } from '$lib/utils';
 
 export const load = ({ fetch }) => ({
-	projects: loadDataFromApi(fetch, '/projects?populate=*'),
+	home: loadDataFromApi(fetch, '/home?populate[Projets][populate]=*'),
 });
