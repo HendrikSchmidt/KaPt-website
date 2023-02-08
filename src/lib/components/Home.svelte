@@ -26,6 +26,7 @@
                 img={project.attributes.Images.data[0].attributes}
                 sizes="150wv"
                 src="xlarge"
+                lazy={i > 0}
                 classString={`absolute w-full h-full object-cover object-center saturate-0 transition duration-1000 transform hover:scale-110 ${i === currentProjectIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             />
         {/each}
