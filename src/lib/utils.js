@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import { writable } from 'svelte/store';
 
 const apiBase = 'https://kapt-cms-production.up.railway.app/api';
@@ -21,7 +22,13 @@ export const title = createTitle();
 export async function loadDataFromApi(fetch, apiPath) {
 	const response = await fetch(`${apiBase}${apiPath}`);
 	const responseData = await response.json();
-	return responseData.data.attributes ?? responseData.data;
+	try {
+		return responseData.data.attributes ?? responseData.data;
+	} catch (e) {
+		throw error(404, {
+			message: 'Not found'
+		});
+	}
 };
 
 export const markdownOptions = {

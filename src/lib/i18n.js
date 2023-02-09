@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import { base } from '$app/paths';
 
 const localizedSlugs = {
@@ -26,7 +27,16 @@ for (const [key, slugMap] of Object.entries(localizedSlugs)) {
   }
 };
 
-const getLocalizedSlug = (slug, lang=currentLang) => `${base}${lang === 'en' ? '/en/' : '/'}${localizedSlugs[slug][lang]}`;
+const getLocalizedSlug = (slug, lang=currentLang) => {
+  try {
+    return `${base}${lang === 'en' ? '/en/' : '/'}${localizedSlugs[slug][lang]}`;
+  } catch (e) {
+    throw error(404, {
+      message: 'Not found'
+    });
+  }
+};
+
 
 const getTranslatedSlug = (path, lang) => {
   let currentPath = path.replace(base, '').replace('/en', '');
