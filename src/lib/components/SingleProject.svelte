@@ -25,22 +25,22 @@
     <div class="col-span-6 md:col-span-2">
         <div class="flex mb-2 justify-between md:justify-start">
             <span class="flex-none md:w-1/2 text-zinc-400 lowercase">{i18n.getLocalizedString('name', lang)}</span>
-            <span class="text-right">{project.Nom.toUpperCase()}</span>
+            <span class="max-sm:text-right">{project.Nom.toUpperCase()}</span>
         </div>
         <div class="flex mb-2 justify-between md:justify-start">
             <span class="flex-none md:w-1/2 text-zinc-400 lowercase">{i18n.getLocalizedString('location', lang)}</span>
-            <span class="text-right">{project.Localisation}</span>
+            <span class="max-sm:text-right">{project.Localisation}</span>
         </div>
         <div class="flex mb-2 justify-between md:justify-start">
             <span class="flex-none md:w-1/2 text-zinc-400 lowercase">{i18n.getLocalizedString('program', lang)}</span>
-            <span class="text-right">{project.Programme}</span>
+            <span class="max-sm:text-right">{project.Programme}</span>
         </div>
         <div class="flex mb-2 justify-between md:justify-start">
             <span class="flex-none md:w-1/2 text-zinc-400 lowercase">{i18n.getLocalizedString('area', lang)}</span>
-            <span class="text-right">{project.Surface} m<sup>2</sup></span>
+            <span class="max-sm:text-right">{project.Surface} m<sup>2</sup></span>
         </div>
     </div>
-    <div class="row-start-2 col-span-6 md:col-start-3 md:col-span-4 text-justify overflow-scroll">
+    <div class="row-start-4 md:row-start-2 col-span-6 md:col-start-3 md:col-span-4 text-justify overflow-scroll">
         {project.Description}
     </div>
     <div class="overflow-hidden row-start-3 col-span-6 md:col-span-4">
