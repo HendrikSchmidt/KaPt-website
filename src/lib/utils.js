@@ -27,3 +27,18 @@ export async function loadDataFromApi(fetch, apiPath) {
 export const markdownOptions = {
 	breaks: true,
 };
+
+export const sluggify = (string) => string.replaceAll(' ', '_');
+export const desluggify = (string) => string.replaceAll('_', ' ');
+
+const getSlugsToIdsMapping = async (route, fieldToGetSlugFrom) => {
+	const response = await fetch(`${apiBase}/${route}?pagination[pageSize]=100`);
+	const collection = await response.json();
+	const slugsToIds = {};
+	collection.data.forEach(
+		(object) => (slugsToIds[sluggify(object.attributes[fieldToGetSlugFrom])] = object.id)
+	);
+	return slugsToIds;
+};
+
+export const projectSlugsToIds = getSlugsToIdsMapping('projects', 'Nom');

@@ -2,20 +2,20 @@ import { base } from '$app/paths';
 
 const localizedSlugs = {
   home: {
-    en: '/en',
-    fr: '/',
+    en: '',
+    fr: '',
   },
   philosophy: {
-    en: '/en/philosophy',
-    fr: '/philosophie',
+    en: 'philosophy',
+    fr: 'philosophie',
   },
   projects: {
-    en: '/en/projects',
-    fr: '/projets',
+    en: 'projects',
+    fr: 'projets',
   },
   contact: {
-    en: '/en/contact',
-    fr: '/contact',
+    en: 'contact',
+    fr: 'contact',
   },
 };
 
@@ -26,14 +26,24 @@ for (const [key, slugMap] of Object.entries(localizedSlugs)) {
   }
 };
 
-const getLocalizedSlug = (slug, lang=currentLang) => {
-    return base + localizedSlugs[slug][lang];
-};
+const getLocalizedSlug = (slug, lang=currentLang) => `${base}${lang === 'en' ? '/en/' : '/'}${localizedSlugs[slug][lang]}`;
+
 
 const getTranslatedSlug = (path, lang) => {
-    let currentPath = path.replace(base, '');
-    currentPath = currentPath === '' ? '/' : currentPath;
-    return getLocalizedSlug(inverseSlugMap[currentPath], lang);
+  let currentPath = path.replace(base, '').replace('/en', '');
+  if (currentPath === '' || currentPath === '/') {
+    return getLocalizedSlug('home', lang);
+  }
+  // Split into parts and remove the first empty string due to the leading slash
+  let allPathParts = currentPath.split('/').slice(1);
+  // Translate the first part which is the page name
+  let pathLocation = allPathParts[0];
+  let translation = getLocalizedSlug(inverseSlugMap[pathLocation], lang);
+  // Add the second part if it exists (projects)
+  if (allPathParts.length > 1) {
+    translation += '/' + allPathParts[1];
+  }
+  return translation;
 }
 
 const localization = {
@@ -64,6 +74,22 @@ const localization = {
   social: {
     en: 'Social media',
     fr: 'Réseaux sociaux',
+  },
+  name: {
+    en: 'Name',
+    fr: 'Nom',
+  },
+  location: {
+    en: 'Location',
+    fr: 'Localisation',
+  },
+  program: {
+    en: 'Program',
+    fr: 'Programme',
+  },
+  area: {
+    en: 'Area',
+    fr: 'Surface',
   },
 };
 
