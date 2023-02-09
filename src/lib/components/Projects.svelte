@@ -1,7 +1,10 @@
 <script>
+  import i18n from '$lib/i18n';
+  import { sluggify } from '$lib/utils';
   import Image from '$lib/components/Image.svelte';
 
   export let projects;
+  export let lang;
 
   projects = projects.map(project => {
     let shortDescription = project.attributes.Description.slice(0, 500);
@@ -14,12 +17,11 @@
       }
     };
   });
-
 </script>
 
 <div>
   {#each projects as project, index (project.id)}
-    <div class="pb-20 cursor-pointer">
+    <a class="pb-20 cursor-pointer" href="{i18n.getLocalizedSlug('projects', lang)}/{sluggify(project.attributes.Nom)}">
       
       <div class="py-3 mb-5 prose sm:w-2/3 lg:w-1/2 border-b-2 border-zinc-900">
         <h2 class="font-normal">{project.attributes.Nom}</h2>
@@ -46,7 +48,7 @@
           </div>
           {/each}
       </div>
-    </div>
+    </a>
   {/each}
 </div>
 

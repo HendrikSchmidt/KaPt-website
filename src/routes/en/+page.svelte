@@ -8,4 +8,4 @@
 	title.set('KaPt');
 </script>
 
-<Home {home} />
+<Home {home} lang='en' />

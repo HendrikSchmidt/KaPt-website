@@ -8,4 +8,4 @@
   title.set('Projects');
 </script>
 
-<Projects {projects} />
+<Projects {projects} lang='en' />

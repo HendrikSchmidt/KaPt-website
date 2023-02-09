@@ -1,8 +1,11 @@
 <script>
     import { onMount } from 'svelte';
+    import i18n from '$lib/i18n';
+    import { sluggify } from '$lib/utils';
     import Image from '$lib/components/Image.svelte';
 
 	export let home;
+	export let lang;
 
     const projects = home.Projets.data;
     let currentProjectIndex = 0;
@@ -20,7 +23,7 @@
 </script>
 
 <div class="w-full overflow-hidden landing-image relative">
-    <a href="/projets/{currentProjectIndex}">
+    <a href="{i18n.getLocalizedSlug('projects', lang)}/{sluggify(projects[currentProjectIndex].attributes.Nom)}">
         {#each projects as project, i}
             <Image
                 img={project.attributes.Images.data[0].attributes}
