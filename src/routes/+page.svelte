@@ -5,7 +5,7 @@
 	export let data;
 	let { home } = data;
 
-	title.set('KaPt');
+	title.set('Acceuil');
 </script>
 
 <Home {home} lang='fr' />
