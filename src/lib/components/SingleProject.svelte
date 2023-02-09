@@ -40,22 +40,22 @@
     <div class="row-start-2 col-span-6 md:col-start-3 md:col-span-4 text-justify overflow-scroll">
         {project.Description}
     </div>
-    <div class="row-start-3 col-span-6 md:col-span-4">
+    <div class="overflow-hidden row-start-3 col-span-6 md:col-span-4">
         <Image
             img={plans[0].attributes}
             sizes="150wv"
             src="xlarge"
-            classString="w-full h-full object-cover object-center"
+            classString=""
             on:click={() => openLightbox(plans[0].attributes.formats.large.url, plans[0].attributes.alternativeText)}
         />
     </div>
     {#each photos as photo, i}
-        <div class={`col-span-6 ${photo.attributes.width > photo.attributes.height ? 'md:col-span-4' : 'md:col-span-2'}`}>
+        <div class="overflow-hidden col-span-6 {photo.attributes.width > photo.attributes.height ? 'md:col-span-4' : 'md:col-span-2'}">
             <Image
                 img={photo.attributes}
                 sizes="150wv"
                 src="xlarge"
-                classString="w-full h-full object-cover object-center"
+                classString=""
                 on:click={() => openLightbox(photo.attributes.formats.large.url, photo.attributes.alternativeText)}
             />
         </div>

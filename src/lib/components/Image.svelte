@@ -24,7 +24,7 @@
     sizes={sizes}
   />
   <img
-    class={classString}
+    class="w-full h-full object-cover object-center transition duration-1000 transform hover:scale-110 {classString}"
     loading={lazy ? 'lazy' : 'eager'}
     src={formats[src] ? formats[src].url : formats.small.url}
     alt={img.alternativeText}

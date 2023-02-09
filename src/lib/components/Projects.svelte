@@ -43,7 +43,7 @@
                     25vw"
               src="small"
               lazy={index > 2 || imgIndex > 6}
-              classString="w-full h-auto aspect-square object-cover object-center saturate-0 hover:saturate-100 transition duration-500 transform hover:scale-110"
+              classString="aspect-square saturate-0 hover:saturate-100"
             />
           </div>
           {/each}
