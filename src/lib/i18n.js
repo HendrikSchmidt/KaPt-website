@@ -28,7 +28,6 @@ for (const [key, slugMap] of Object.entries(localizedSlugs)) {
 
 const getLocalizedSlug = (slug, lang=currentLang) => `${base}${lang === 'en' ? '/en/' : '/'}${localizedSlugs[slug][lang]}`;
 
-
 const getTranslatedSlug = (path, lang) => {
   let currentPath = path.replace(base, '').replace('/en', '');
   if (currentPath === '' || currentPath === '/') {

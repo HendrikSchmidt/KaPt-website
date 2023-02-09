@@ -1,7 +1,4 @@
 <script>
-    import SvelteMarkdown from "svelte-markdown";
-    import { page } from "$app/stores";
-    import { desluggify, title, projectSlugsToIds } from "$lib/utils";
     import Image from "$lib/components/Image.svelte";
     import i18n from "$lib/i18n";
 
@@ -9,8 +6,6 @@
     export let lang;
     $: photos = project.Images.data;
     $: plans = project.Plans.data;
-
-    console.log(project.Images.data[1]);
 
     let showLightbox = false;
     const openLightbox = (url, text) => {
