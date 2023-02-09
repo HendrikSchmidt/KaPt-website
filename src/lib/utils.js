@@ -32,11 +32,18 @@ export const sluggify = (string) => string.replaceAll(' ', '_');
 export const desluggify = (string) => string.replaceAll('_', ' ');
 
 const getSlugsToIdsMapping = async (route, fieldToGetSlugFrom) => {
-	const response = await fetch(`${apiBase}/${route}?pagination[pageSize]=100`);
+	const response = await fetch(`${apiBase}/${route}?pagination[pageSize]=100&locale=all`);
 	const collection = await response.json();
-	const slugsToIds = {};
+	
+	const slugsToIds = {
+		'en': {},
+		'fr': {},
+	};
 	collection.data.forEach(
-		(object) => (slugsToIds[sluggify(object.attributes[fieldToGetSlugFrom])] = object.id)
+		(object) => {
+			let objectData = object.attributes;
+			slugsToIds[objectData.locale === 'en' ? 'en' : 'fr'][sluggify(objectData[fieldToGetSlugFrom])] = object.id;
+		}
 	);
 	return slugsToIds;
 };
