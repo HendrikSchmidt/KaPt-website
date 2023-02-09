@@ -30,7 +30,7 @@
                 sizes="150wv"
                 src="xlarge"
                 lazy={i > 0}
-                classString="absolute saturate-0 {i === currentProjectIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}"
+                classString="absolute object-cover saturate-0 {i === currentProjectIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}"
             />
         {/each}
     </a>

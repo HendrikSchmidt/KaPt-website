@@ -43,7 +43,7 @@
                     25vw"
               src="small"
               lazy={index > 2 || imgIndex > 6}
-              classString="aspect-square saturate-0 hover:saturate-100"
+              classString="aspect-square object-cover saturate-0 hover:saturate-100"
             />
           </div>
           {/each}
