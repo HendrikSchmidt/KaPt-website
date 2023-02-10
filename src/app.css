@@ -3,18 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "SpaceGrotesk";
-    src: url("/SpaceGrotesk.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "ArchivoBlack";
     src: url("/ArchivoBlack.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Arimo";
     src: url("/Arimo.ttf") format("truetype");
+    font-display: swap;
 }
 
 body {
