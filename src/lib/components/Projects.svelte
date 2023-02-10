@@ -19,25 +19,25 @@
       
       <div class="flex w-full overflow-scroll">
           {#each project.attributes.Images.data as img, imgIndex}
-          <div class="flex-none w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
+          <div class="flex-none aspect-square w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
             <Image
               img={img.attributes}
               sizes={sizes}
               src="small"
               lazy={index > 2 || imgIndex > 6}
-              classString="aspect-square object-cover saturate-0 hover:saturate-100"
+              classString="object-cover saturate-0 hover:saturate-100"
             />
           </div>
           {/each}
           {#if project.attributes.MontrePlansDansProjets}
             {#each project.attributes.Plans.data as plan, planIndex}
-            <div class="flex-none w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
+            <div class="flex-none aspect-square w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
               <Image
                 img={plan.attributes}
                 sizes={sizes}
                 src="small"
                 lazy={index > 2 || project.attributes.Images.data.length + planIndex > 6 }
-                classString="aspect-square object-cover saturate-0 hover:saturate-100"
+                classString="object-cover saturate-0 hover:saturate-100"
               />
             </div>
             {/each}
