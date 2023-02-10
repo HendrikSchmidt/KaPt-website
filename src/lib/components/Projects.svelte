@@ -6,7 +6,7 @@
   export let projects;
   export let lang;
 
-  let sizes = "(max-width: 639px) 90vw, (max-width: 767px) 75vw, (max-width: 1023px) 50vw, (max-width: 1279px) 40vw, (max-width: 1535px) 30vw, 25vw";
+  let sizes = "600px";
 </script>
 
 <div>
