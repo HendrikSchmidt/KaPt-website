@@ -4,6 +4,6 @@
   export let href;
 </script>
 
-<a {href} class="hover:italic uppercase" class:underline="{$page.url.pathname.includes(href)}">
+<a {href} class="hover:italic uppercase" class:italic="{$page.url.pathname.includes(href)}">
     <slot />
 </a>
