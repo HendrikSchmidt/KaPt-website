@@ -1,6 +1,7 @@
 <script>
     import Image from "$lib/components/Image.svelte";
     import i18n from "$lib/i18n";
+	import SvelteMarkdown from "svelte-markdown";
 
     export let project;
     export let lang;
@@ -40,10 +41,7 @@
             <span class="max-sm:text-right">{project.Surface} m<sup>2</sup></span>
         </div>
     </div>
-    <div class="row-start-4 md:row-start-2 col-span-6 md:col-start-3 md:col-span-4 text-justify overflow-scroll">
-        {project.Description}
-    </div>
-    <div class="overflow-hidden row-start-3 col-span-6 md:col-span-4">
+    <div class="overflow-hidden row-start-3 md:row-start-2 col-span-6 md:col-span-4">
         <Image
             img={plans[0].attributes}
             sizes="300wv"
@@ -51,6 +49,9 @@
             classString="object-contain"
             on:click={() => openLightbox(plans[0].attributes.formats.large.url, plans[0].attributes.alternativeText)}
         />
+    </div>
+    <div class="contents prose text-justify overflow-scroll">
+        <SvelteMarkdown source={project.Description} />
     </div>
     {#each photos as photo, i}
         <div class="overflow-hidden col-span-6 {photo.attributes.width > photo.attributes.height ? 'md:col-span-4' : 'md:col-span-2'}">
@@ -65,10 +66,36 @@
     {/each}
 </div>
 
-<style>
+<style global>
+.contents p {
+    place-self: center;
+    grid-column: span 6 / span 6;
+}
+.contents p:first-of-type {
+    grid-row-start: 4;
+}
+.contents p:nth-of-type(2) {
+    grid-row-start: 6;
+}
+.contents p:nth-of-type(3) {
+    grid-row-start: 8;
+}
 @media (min-width: 768px) {
     .image-grid {
         grid-template-rows: auto fit-content(50vw) 1fr;
+    }
+    .contents p {
+        grid-column: span 4 / span 4;
+        grid-column-start: 3;
+    }
+    .contents p:first-of-type {
+        grid-row-start: 3;
+    }
+    .contents p:nth-of-type(2) {
+        grid-row-start: 5;
+    }
+    .contents p:nth-of-type(3) {
+        grid-row-start: 7;
     }
 }
 </style>
