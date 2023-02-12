@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    main .prose h1 {
-        @apply text-2xl;
-    }
-    main .prose h2 {
-        @apply text-xl;
-    }
-    main .prose h2 {
-        @apply text-lg;
-    }
-}
-
 @font-face {
     font-family: "ArchivoBlack";
     src: url("/ArchivoBlack.ttf") format("truetype");
@@ -26,10 +14,34 @@
     font-display: swap;
 }
 
-body {
-    font-family: "Arimo";
+@layer base {
+    body {
+        font-family: "Arimo";
+    }
+    
+    h1, h2, h3 {
+        text-transform: uppercase;
+    }
 }
 
-h1, h2, h3 {
-    text-transform: uppercase;
+@layer components {
+    main .prose-sm h3 {
+        @apply text-lg;
+    }
+    main .prose-sm h2,
+    main .prose-base h3 {
+        @apply text-xl;
+    }
+    main .prose-sm h1,
+    main .prose-base h2,
+    main .prose-lg h3 {
+        @apply text-2xl;
+    }
+    main .prose-base h1,
+    main .prose-lg h2 {
+        @apply text-3xl;
+    }
+    main .prose-lg h1 {
+        @apply text-4xl;
+    }
 }
