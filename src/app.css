@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    main .prose h1 {
+        @apply text-2xl;
+    }
+    main .prose h2 {
+        @apply text-xl;
+    }
+    main .prose h2 {
+        @apply text-lg;
+    }
+}
+
 @font-face {
     font-family: "ArchivoBlack";
     src: url("/ArchivoBlack.ttf") format("truetype");
