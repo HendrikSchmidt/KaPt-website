@@ -44,4 +44,7 @@
     main .prose-lg h1 {
         @apply text-4xl;
     }
+    .contents.prose p {
+        max-width: 65ch;
+    }
 }

@@ -50,7 +50,7 @@
             on:click={() => openLightbox(plans[0].attributes.formats.large.url, plans[0].attributes.alternativeText)}
         />
     </div>
-    <div class="contents prose text-justify overflow-scroll">
+    <div class="contents prose prose-sm lg:prose-base xl:prose-lg text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>
     {#each photos as photo, i}
