@@ -11,15 +11,21 @@
     const landscape_sizes = "(max-width: 767px) 100vw, 75vw";
     const portrait_sizes = "(max-width: 767px) 100vw, 50vw";
 
-    let showLightbox = false;
-    const openLightbox = (url, text) => {
-        showLightbox = true;
-        const lightbox = document.getElementById('lightbox');
-        const modalImg = lightbox.querySelector('img');
-        modalImg.src = url;
-        modalImg.alt = text;
-    };
-    const hideLightbox = () => {showLightbox = false;};
+    let amountPortraits = 0;
+    let amountLandscapes = 0;
+    const getGridClasses = (photoAttributes) => {
+        const isPortrait = photoAttributes.width < photoAttributes.height;
+        if (isPortrait) {
+            amountPortraits++;
+            return `col-span-6 md:col-span-2 md:col-start-${amountPortraits % 2 === 0 ? 1 : 5}`;
+        } else {
+            amountLandscapes++;
+            if (amountLandscapes > 3) {
+                return `col-span-6 md:col-span-4 md:col-start-${amountLandscapes % 2 === 0 ? 1 : 3}`;
+            }
+            return `col-span-6 md:col-span-4`;
+        }
+    }
 </script>
 
 <div class="image-grid w-full grid grid-flow-dense grid-cols-6 gap-8">
@@ -47,20 +53,18 @@
             sizes="300wv"
             src="xlarge"
             classString="object-contain"
-            on:click={() => openLightbox(plans[0].attributes.formats.large.url, plans[0].attributes.alternativeText)}
         />
     </div>
     <div class="contents prose prose-sm lg:prose-base xl:prose-lg text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>
     {#each photos as photo, i}
-        <div class="overflow-hidden col-span-6 {photo.attributes.width > photo.attributes.height ? 'md:col-span-4' : 'md:col-span-2'}">
+        <div class="overflow-hidden {getGridClasses(photo.attributes)}">
             <Image
                 img={photo.attributes}
                 sizes="{photo.attributes.width > photo.attributes.height ? landscape_sizes : portrait_sizes}"
                 src="xlarge"
                 classString="object-cover"
-                on:click={() => openLightbox(photo.attributes.formats.large.url, photo.attributes.alternativeText)}
             />
         </div>
     {/each}
