@@ -100,6 +100,10 @@ const localization = {
     en: 'Area',
     fr: 'Surface',
   },
+  biographies: {
+    en: 'Biographies',
+    fr: 'Biographies',
+  },
 };
 
 

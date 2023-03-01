@@ -29,7 +29,7 @@
 </script>
 
 <div class="image-grid w-full grid grid-flow-dense grid-cols-6 gap-12">
-    <div class="col-span-6 md:col-span-2 prose prose-sm md:prose-base lg:prose-lg xl:prose-xl max-w-none">
+    <div class="col-span-6 md:col-span-2 prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl max-w-none">
         <div class="flex mb-2 justify-between md:justify-start">
             <span class="flex-none md:w-1/2 text-zinc-400 lowercase mr-2">{i18n.getLocalizedString('name', lang)}</span>
             <span class="max-sm:text-right">{project.Nom.toUpperCase()}</span>
@@ -55,7 +55,7 @@
             classString="object-contain"
         />
     </div>
-    <div class="contents prose prose-sm md:prose-base lg:prose-lg xl:prose-xl text-justify overflow-scroll">
+    <div class="contents prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>
     {#each photos as photo, i}

@@ -7,7 +7,7 @@
   export let lang;
 </script>
 
-<div class="prose w-full prose-sm lg:prose-base xl:prose-lg">
+<div class="prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl w-full">
   
   <h1>{i18n.getLocalizedString('contact', lang)}</h1>
   <div class="flex w-full">

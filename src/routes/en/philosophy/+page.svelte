@@ -9,4 +9,4 @@
   title.set('Philosophy');
 </script>
 
-<Philosophy {philosophy} />
+<Philosophy {philosophy} lang='en' />
