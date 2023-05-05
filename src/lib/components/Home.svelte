@@ -10,11 +10,11 @@
     const projects = home.Projets.data;
     let currentProjectIndex = 0;
     
-    // shuffle through projects every 8 seconds
+    // shuffle through projects every 5 seconds
     onMount(() => {
         const interval = setInterval(() => {
             currentProjectIndex = (currentProjectIndex + 1) % projects.length;
-        }, 8000);
+        }, 5000);
         
         return () => {
 			clearInterval(interval);
