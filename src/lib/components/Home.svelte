@@ -22,7 +22,7 @@
     });
 </script>
 
-<div class="w-full overflow-hidden landing-image relative">
+<div class="w-full overflow-hidden landing-image relative aspect-[4/3] md:aspect-[3/2]">
     <a href="{i18n.getLocalizedSlug('projects', lang)}/{sluggify(projects[currentProjectIndex].attributes.Nom)}">
         {#each projects as project, i}
             <Image
@@ -36,9 +36,3 @@
         {/each}
     </a>
 </div>
-
-<style>
-.landing-image {
-    height: calc(100vh - 14rem);
-}
-</style>
