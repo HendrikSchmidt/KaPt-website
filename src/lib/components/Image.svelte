@@ -17,7 +17,7 @@
     srcset += `, ${img.url} 2000w`;
 </script>
 
-<picture>
+<picture class="relative">
   <source
     type="image/webp"
     srcset={replaceJPGWithWebP(srcset)}
@@ -30,5 +30,11 @@
     alt={img.alternativeText}
     on:click
   />
+  <p class="opacity-0 transition-all text-xs absolute bottom-0 px-1 bg-white">{img.caption}</p>
 </picture>
 
+<style>
+  picture:hover p {
+    opacity: 1;
+  }
+</style>
