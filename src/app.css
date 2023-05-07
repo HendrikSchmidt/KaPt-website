@@ -47,4 +47,9 @@
     .contents.prose p {
         max-width: 65ch;
     }
+
+    .prose-lg p,
+    .prose-xl p {
+        @apply leading-relaxed;
+    }
 }
