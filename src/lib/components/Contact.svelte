@@ -15,19 +15,12 @@
       <p>{i18n.getLocalizedString('mail', lang)}</p>
       <p>{i18n.getLocalizedString('phone', lang)}</p>
       <p>{i18n.getLocalizedString('address', lang)}</p>
-    </div>
-    <div>
-      <p>{contact.Mail}</p>
-      <p>{contact.Phone}</p>
-      <p>{contact.Adresse}</p>
-    </div>
-  </div>
-  <h2>{i18n.getLocalizedString('social', lang)}</h2>
-  <div class="flex">
-    <div class="text-zinc-400 lowercase w-1/2">
       <p>instagram</p>
     </div>
     <div>
+      <p><a href="mailto:{contact.Mail}">{contact.Mail}</a></p>
+      <p>{contact.Phone}</p>
+      <p>{contact.Adresse}</p>
       <SvelteMarkdown source={contact.Instagram} options={markdownOptions} />
     </div>
   </div>
