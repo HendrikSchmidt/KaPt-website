@@ -2,20 +2,22 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/KaPt-website/favicon.png" />
+		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="/KaPt-website/_app/immutable/assets/_layout-3c6166f8.css" rel="stylesheet">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/start-49add626.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/shared-c0198a42.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/singletons-b40dfd89.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/control-e7f5239e.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/components/pages/_layout.svelte-a17a757c.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/stores-01bb12ae.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/i18n-34ef016b.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/components/pages/contact/_page.svelte-d20b002e.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/Contact-18c2f45a.js">
-		<link rel="modulepreload" href="/KaPt-website/_app/immutable/chunks/SvelteMarkdown-5ca41ec1.js"><title></title><!-- HEAD_svelte-92cd07_START --><!-- HEAD_svelte-92cd07_END -->
+		<link href="./_app/immutable/assets/0.72f47403.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.104c75d9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.2baf3ca1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.23df0682.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.6558f4d7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.e7f5239e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.76ed6184.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.fe9387f9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.134b2e45.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/i18n.eaab2e67.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.20cf9598.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Contact.bbaa9bee.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/SvelteMarkdown.38944363.js"><title>Acceuil • KaPt</title><!-- HEAD_svelte-92cd07_START --><!-- HEAD_svelte-92cd07_END -->
 	</head>
 	<body>
 		<div>
@@ -47,22 +49,32 @@ Maroc</p></div></div></div></main>
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="ewbve4">
-			import { start } from "/KaPt-website/_app/immutable/start-49add626.js";
+			
+			<script>
+				{
+					__sveltekit_10g51xu = {
+						assets: "/KaPt-website",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
 
-			start({
-				env: {},
-				paths: {"assets":"/KaPt-website","base":"/KaPt-website"},
-				target: document.querySelector('[data-sveltekit-hydrate="ewbve4"]').parentNode,
-				version: "1683476249861",
-				hydrate: {
-					node_ids: [0, 3],
-					data: [{type:"data",data:{logo:{createdAt:"2022-12-10T11:21:49.842Z",updatedAt:"2022-12-10T12:05:38.801Z",Logo:{data:null}}},uses:{dependencies:["https://kapt-cms-production.up.railway.app/api/logo?populate=*"]}},{type:"data",data:{contact:{createdAt:"2022-12-10T17:10:12.253Z",updatedAt:"2023-05-07T16:14:47.220Z",Mail:"kapt.architectes@gmail.com",Phone:"+33 6 44 77 66 55",Instagram:"kapt.studio",Adresse:"95 avenue du General Leclerc \n75014 Paris \nFrance\n\n1 rue Tormosse, Hay Ryad \n10100 Rabat \nMaroc"}},uses:{dependencies:["https://kapt-cms-production.up.railway.app/api/contact"]}}],
-					form: null,
-					error: null
+					const element = document.currentScript.parentElement;
+
+					const data = [{"type":"data","data":{logo:{createdAt:"2022-12-10T11:21:49.842Z",updatedAt:"2022-12-10T12:05:38.801Z",Logo:{data:null}}},"uses":{"dependencies":["https://kapt-cms-production.up.railway.app/api/logo?populate=*"]}},{"type":"data","data":{contact:{createdAt:"2022-12-10T17:10:12.253Z",updatedAt:"2023-05-07T16:14:47.220Z",Mail:"kapt.architectes@gmail.com",Phone:"+33 6 44 77 66 55",Instagram:"kapt.studio",Adresse:"95 avenue du General Leclerc \n75014 Paris \nFrance\n\n1 rue Tormosse, Hay Ryad \n10100 Rabat \nMaroc"}},"uses":{"dependencies":["https://kapt-cms-production.up.railway.app/api/contact"]}}];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.104c75d9.js"),
+						import("./_app/immutable/entry/app.76ed6184.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
 				}
-			});
-		</script>
-	</div>
+			</script>
+		</div>
 	</body>
 </html>
