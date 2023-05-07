@@ -4,6 +4,7 @@
     export let src;
     export let classString = "";
     export let sizes = "100vw";
+    export let pictureRelative = true;
 
     $: formats = img.formats;
     const scales = {
@@ -17,7 +18,7 @@
     srcset += `, ${img.url} 2000w`;
 </script>
 
-<picture class="relative">
+<picture class={pictureRelative && "relative"}>
   <source
     type="image/webp"
     srcset={replaceJPGWithWebP(srcset)}
@@ -30,7 +31,7 @@
     alt={img.alternativeText}
     on:click
   />
-  <p class="opacity-0 transition-all text-xs absolute bottom-0 px-1 bg-white">{img.caption}</p>
+  <p class="z-20 opacity-0 transition-all text-xs absolute bottom-0 px-1 bg-white">{img.caption}</p>
 </picture>
 
 <style>
