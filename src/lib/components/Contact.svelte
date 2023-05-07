@@ -13,15 +13,15 @@
   <div class="flex w-full">
     <div class="text-zinc-400 lowercase w-1/2">
       <p>{i18n.getLocalizedString('mail', lang)}</p>
+      <p>instagram</p>
       <p>{i18n.getLocalizedString('phone', lang)}</p>
       <p>{i18n.getLocalizedString('address', lang)}</p>
-      <p>instagram</p>
     </div>
     <div>
       <p><a href="mailto:{contact.Mail}">{contact.Mail}</a></p>
+      <p><a href="https://www.instagram.com/{contact.Instagram}/">@{contact.Instagram}</a></p>
       <p>{contact.Phone}</p>
-      <p>{contact.Adresse}</p>
-      <SvelteMarkdown source={contact.Instagram} options={markdownOptions} />
+      <SvelteMarkdown source={contact.Adresse} options={markdownOptions} />
     </div>
   </div>
 </div>
