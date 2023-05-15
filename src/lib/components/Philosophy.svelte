@@ -22,7 +22,7 @@
         <div class="sm:hidden">
           <img class="w-60" src={biographie.Portrait.data.attributes.url} alt={biographie.Portrait.data.attributes.alternativeText} />
         </div>
-        <span class="font-bold text-zinc-400">{biographie.Position}</span>
+        <span class="[font-weight:500]">{biographie.Position}</span>
         <SvelteMarkdown source={biographie.Description} options={markdownOptions} />
       </div>
     </div>
