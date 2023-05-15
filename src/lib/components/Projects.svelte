@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import i18n from '$lib/i18n';
   import { sluggify } from '$lib/utils';
   import Image from '$lib/components/Image.svelte';
@@ -6,41 +7,56 @@
   export let projects;
   export let lang;
 
-  let sizes = "600px";
+  projects = projects.map((project) => ({
+    ...project,
+    imagesToShow: project.attributes.MontrePlansDansProjets ? project.attributes.Images.data.concat(project.attributes.Plans.data) : project.attributes.Images.data,
+    idxToShow: 0,
+  }));
+
+  // introduce delay between image changes
+  const changeImagesGradually = () => {
+    for (let i = 0; i < projects.length; i++) {
+      setTimeout(() => {
+        projects[i] = {
+          ...projects[i],
+          idxToShow: (projects[i].idxToShow + 1) % projects[i].imagesToShow.length,
+        };
+      }, i * 1000);
+    }
+  };
+
+  // shuffle through image every 5 seconds
+	onMount(() => {
+		const interval = setInterval(changeImagesGradually, 5000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
 </script>
 
-{#each projects as project, index (project.id)}
-  <a class="w-full pb-20 cursor-pointer" href="{i18n.getLocalizedSlug('projects', lang)}/{sluggify(project.attributes.Nom)}">
-    
-    <div class="py-3 mb-5 prose sm:w-2/3 lg:w-1/2 border-b-2 border-zinc-900">
-      <h2 class="font-normal">{project.attributes.Nom}</h2>
-    </div>
-    
-    <div class="flex w-full overflow-scroll">
-        {#each project.attributes.Images.data as img, imgIndex}
-        <div class="flex-none aspect-square w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
-          <Image
+<div class="w-full flex flex-row flex-wrap">
+  {#each projects as project (project.id)}
+  <div class="w-full lg:w-1/2 flex-none lg:px-5">
+    <a class="w-full aspect-square md:aspect-[3/2] lg:aspect-square 2xl:aspect-[3/2] cursor-pointer flex flex-col border-t-2 border-zinc-900 py-5 mb-5" href="{i18n.getLocalizedSlug('projects', lang)}/{sluggify(project.attributes.Nom)}">
+      
+      <div class="prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl flex-none">
+        <h1 class="pb-5">{project.attributes.Nom}</h1>
+      </div>
+      
+      <div class="w-full overflow-hidden landing-image relative flex-auto">
+        {#each project.imagesToShow as img, idx}
+        <Image
             img={img.attributes}
-            sizes={sizes}
-            src="small"
-            lazy={index > 2 || imgIndex > 6}
-            classString="object-cover saturate-0 hover:saturate-100"
-          />
-        </div>
+            sizes="150wv"
+            src="xlarge"
+            lazy={idx > 0}
+            pictureRelative={false}
+            classString="absolute object-contain saturate-0 hover:saturate-100 {idx === project.idxToShow ? 'opacity-100 z-10' : 'opacity-0 z-0'}"
+        />
         {/each}
-        {#if project.attributes.MontrePlansDansProjets}
-          {#each project.attributes.Plans.data as plan, planIndex}
-          <div class="flex-none aspect-square w-2/3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6 mr-8 mb-8 overflow-hidden">
-            <Image
-              img={plan.attributes}
-              sizes={sizes}
-              src="small"
-              lazy={index > 2 || project.attributes.Images.data.length + planIndex > 6 }
-              classString="object-cover saturate-0 hover:saturate-100"
-            />
-          </div>
-          {/each}
-        {/if}
-    </div>
-  </a>
-{/each}
+      </div>
+    </a>
+  </div>
+  {/each}
+</div>
