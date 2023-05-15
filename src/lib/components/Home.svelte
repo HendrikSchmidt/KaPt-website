@@ -35,7 +35,7 @@
         src="xlarge"
         lazy={i > 0}
         pictureRelative={false}
-        classString="absolute object-cover saturate-0 {i === currentProjectIndex
+        classString="absolute object-cover saturate-0 hover:saturate-100 {i === currentProjectIndex
           ? 'opacity-100 z-10'
           : 'opacity-0 z-0'}"
       />
