@@ -12,7 +12,7 @@
 
   const getGridClasses = (photoAttributes) => {
     const isPortrait = photoAttributes.width < photoAttributes.height;
-    return `col-span-6 md:col-span-${isPortrait ? 2 : 4} md:col-start-${isPortrait ? 1 : 3}`;
+    return isPortrait ? 'col-span-6 md:col-span-2' : 'col-span-6 md:col-span-4 md:col-start-3';
   };
 </script>
 
@@ -63,7 +63,7 @@
     grid-row-start: 5;
   }
   .contents p:nth-of-type(3) {
-    grid-row-start: 6;
+    grid-row-start: 7;
   }
   @media (min-width: 768px) {
     .image-grid {
