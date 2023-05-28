@@ -11,10 +11,10 @@
       ...project,
       url: `${i18n.getLocalizedSlug('projects', lang)}/${sluggify(project.attributes.Nom)}`,
   }));
-  const news = home.News.data.map((news) => ({
-      ...news,
-      url: `${i18n.getLocalizedSlug('news', lang)}/${sluggify(news.attributes.Nom)}`,
-  }));;
+  const news = home.News.data.map((newsItem) => ({
+      ...newsItem,
+      url: `${i18n.getLocalizedSlug('news', lang)}/${sluggify(newsItem.attributes.Nom)}`,
+  }));
   const pages = projects.concat(news);
   let currentImageIndex = 0;
 
