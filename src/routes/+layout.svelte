@@ -40,6 +40,11 @@
         </NavLink>
       </li>
       <li class="sm:pl-4">
+        <NavLink href="{i18n.getLocalizedSlug('news', currentLang)}">
+          {i18n.getLocalizedString('news', currentLang)}
+        </NavLink>
+      </li>
+      <li class="sm:pl-4">
         <NavLink href="{i18n.getLocalizedSlug('contact', currentLang)}">
           {i18n.getLocalizedString('contact', currentLang)}
         </NavLink>

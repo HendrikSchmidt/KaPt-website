@@ -18,6 +18,10 @@ const localizedSlugs = {
     en: 'contact',
     fr: 'contact',
   },
+  news: {
+    en: 'news',
+    fr: 'news',
+  },
 };
 
 const inverseSlugMap = {};
@@ -67,6 +71,10 @@ const localization = {
   contact: {
     en: 'Contact',
     fr: 'Contact',
+  },
+  news: {
+    en: 'News',
+    fr: 'News',
   },
   mail: {
     en: 'Mail',
