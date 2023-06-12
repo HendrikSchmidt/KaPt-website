@@ -112,6 +112,10 @@ const localization = {
     en: 'Biographies',
     fr: 'Biographies',
   },
+  noNews: {
+    en: 'No news available at the moment.',
+    fr: 'Aucune actualité disponible pour le moment.',
+  },
 };
 
 

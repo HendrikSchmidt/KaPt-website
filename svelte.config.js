@@ -14,6 +14,11 @@ const config = {
 		paths: {
 			base: dev ? '' : '/KaPt-website',
 		},
+
+    prerender: {
+      entries: ['*', '/news/example', '/en/news/example'],
+      handleHttpError: 'warn',
+    },
 	},
 	preprocess: [
 		preprocess({
