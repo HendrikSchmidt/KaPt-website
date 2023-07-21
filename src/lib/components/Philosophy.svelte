@@ -8,7 +8,7 @@
 </script>
 
 <div class="container mx-auto md:w-5/6 lg:w-4/5 xl:w-3/4 2xl:w-2/3 text-justify prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl max-w-none">
-  <div class="mb-36">
+  <div class="mb-36 philosophy">
     <SvelteMarkdown source={philosophy.Philosophie} options={markdownOptions} />
   </div>
   <h2>{i18n.getLocalizedString('biographies', lang)}</h2>
@@ -28,3 +28,10 @@
     </div>
   {/each}
 </div>
+
+<style global>
+  .philosophy img {
+    max-height: 75vh;
+    margin: 0 auto;;
+  }
+</style>
