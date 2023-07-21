@@ -18,7 +18,9 @@
 
 <div class="app w-screen text-zinc-900" data-sveltekit-preload-data="hover">
   <aside class="fixed top-0 left-0 flex flex-wrap justify-between p-4 sm:p-8 w-full z-50 max-sm:bg-white">
-    <a class="logo text-6xl md:text-8xl flex-0" href="{i18n.getLocalizedSlug('home', currentLang)}">KaPt</a>
+    <a class="logo w-36 sm:w-40 md:w-60 xl:w-72" href="{i18n.getLocalizedSlug('home', currentLang)}">
+      <img src={logo.Logo.data.attributes.url} alt="KaPt logo"/>
+    </a>
 
     <div class="flex-0 lg:text-2xl z-20 sm:flex-1 text-right">
       {#if $page.url.pathname.startsWith(`${base}/en`)}
