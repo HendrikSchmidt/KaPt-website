@@ -11,7 +11,6 @@
   <div class="mb-36 philosophy">
     <SvelteMarkdown source={philosophy.Philosophie} options={markdownOptions} />
   </div>
-  <h2>{i18n.getLocalizedString('biographies', lang)}</h2>
   {#each philosophy.Biographies as biographie, index (biographie.id)}
     <div class="my-4 sm:flex">
       <div class="max-sm:hidden w-60 flex-none pb-8">
