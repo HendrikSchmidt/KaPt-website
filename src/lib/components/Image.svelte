@@ -29,7 +29,7 @@
     src={formats[src] ? formats[src].url : formats.small.url}
     alt={img.alternativeText}
   />
-  <p class="z-20 opacity-0 transition-all text-xs absolute bottom-0 right-0 px-1 text-zinc-500 bg-white">{img.caption}</p>
+  <p class="z-20 opacity-0 transition-all text-xs absolute bottom-0 right-0 px-1 text-zinc-500 bg-white">{img.name}</p>
 </picture>
 
 <style>
