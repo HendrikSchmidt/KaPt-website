@@ -7,11 +7,17 @@
   export let projects;
   export let lang;
 
-  projects = projects.map((project) => ({
-    ...project,
-    imagesToShow: project.attributes.MontrePlansDansProjets ? project.attributes.Images.data.concat(project.attributes.Plans.data) : project.attributes.Images.data,
-    idxToShow: 0,
-  }));
+  projects = projects.map((project) => {
+    let attrs = project.attributes;
+    let hasPlans = attrs.Plans && attrs.Plans.length > 0;
+    let showPlans = attrs.MontrePlansDansProjets && hasPlans;
+    let imagesToShow = showPlans ? attrs.Images.data.concat(attrs.Plans.data) : attrs.Images.data;
+    return {
+      ...project,
+      imagesToShow,
+      idxToShow: 0,
+    }
+  });
 
   // introduce delay between image changes
   const changeImagesGradually = () => {
