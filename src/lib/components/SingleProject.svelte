@@ -47,6 +47,7 @@
             <span>{project.Surface} m<sup>2</sup></span>
         </div>
     </div>
+    {#if plans && plans.length > 0}
     <div class="overflow-hidden row-start-3 md:row-start-2 col-span-6 md:col-span-4">
         <Image
             img={plans[0].attributes}
@@ -55,6 +56,7 @@
             classString="object-contain"
         />
     </div>
+    {/if}
     <div class="contents prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>
