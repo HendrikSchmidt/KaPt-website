@@ -1,9 +1,7 @@
 <script>
-  import i18n from "$lib/i18n";
   import SvelteMarkdown from 'svelte-markdown';
   import { markdownOptions } from '$lib/utils';
 
-  export let lang;
   export let philosophy;
 </script>
 
