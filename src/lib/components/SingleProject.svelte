@@ -6,7 +6,6 @@
     export let project;
     export let lang;
     $: photos = project.Images.data;
-    $: plans = project.Plans.data;
 
     const landscape_sizes = "(max-width: 767px) 100vw, 75vw";
     const portrait_sizes = "(max-width: 767px) 100vw, 50vw";
@@ -47,16 +46,6 @@
             <span>{project.Surface} m<sup>2</sup></span>
         </div>
     </div>
-    {#if plans && plans.length > 0}
-    <div class="overflow-hidden row-start-3 md:row-start-2 col-span-6 md:col-span-4">
-        <Image
-            img={plans[0].attributes}
-            sizes="300wv"
-            src="xlarge"
-            classString="object-contain"
-        />
-    </div>
-    {/if}
     <div class="contents prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>

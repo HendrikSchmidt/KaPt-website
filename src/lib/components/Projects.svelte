@@ -7,17 +7,10 @@
   export let projects;
   export let lang;
 
-  projects = projects.map((project) => {
-    let attrs = project.attributes;
-    let hasPlans = attrs.Plans && attrs.Plans.length > 0;
-    let showPlans = attrs.MontrePlansDansProjets && hasPlans;
-    let imagesToShow = showPlans ? attrs.Images.data.concat(attrs.Plans.data) : attrs.Images.data;
-    return {
+  projects = projects.map((project) => ({
       ...project,
-      imagesToShow,
       idxToShow: 0,
-    }
-  });
+  }));
 
   // introduce delay between image changes
   const changeImagesGradually = () => {
@@ -51,7 +44,7 @@
       </div>
       
       <div class="w-full overflow-hidden landing-image relative flex-auto">
-        {#each project.imagesToShow as img, idx}
+        {#each project.attributes.Images.data as img, idx}
         <Image
             img={img.attributes}
             sizes="150wv"
