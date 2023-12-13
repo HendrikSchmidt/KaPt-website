@@ -5,26 +5,10 @@
 
     export let project;
     export let lang;
-    $: photos = project.Images.data;
-
-    const landscape_sizes = "(max-width: 767px) 100vw, 75vw";
-    const portrait_sizes = "(max-width: 767px) 100vw, 50vw";
-
-    let amountPortraits = 0;
-    let amountLandscapes = 0;
-    const getGridClasses = (photoAttributes) => {
-        const isPortrait = photoAttributes.width < photoAttributes.height;
-        if (isPortrait) {
-            amountPortraits++;
-            return `col-span-6 md:col-span-2 md:col-start-${amountPortraits % 2 === 0 ? 1 : 5}`;
-        } else {
-            amountLandscapes++;
-            if (amountLandscapes > 3) {
-                return `col-span-6 md:col-span-4 md:col-start-${amountLandscapes % 2 === 0 ? 1 : 3}`;
-            }
-            return `col-span-6 md:col-span-4`;
-        }
-    }
+    $: images = project.Images.data.map((image) => ({
+        ...image,
+        isPortrait: image.attributes.width < image.attributes.height,
+    }));
 </script>
 
 <div class="image-grid w-full grid grid-flow-dense grid-cols-6 gap-12">
@@ -49,11 +33,11 @@
     <div class="contents prose prose-sm lg:prose-base xl:prose-lg 2xl:prose-xl text-justify overflow-scroll">
         <SvelteMarkdown source={project.Description} />
     </div>
-    {#each photos as photo, i}
-        <div class="overflow-hidden {getGridClasses(photo.attributes)}">
+    {#each images as image, i}
+        <div class="overflow-hidden col-span-6 {image.isPortrait ? "portrait md:col-span-2" : "landscape md:col-span-4"}">
             <Image
-                img={photo.attributes}
-                sizes="{photo.attributes.width > photo.attributes.height ? landscape_sizes : portrait_sizes}"
+                img={image.attributes}
+                sizes="{image.isPortrait ? "(max-width: 767px) 100vw, 50vw" : "(max-width: 767px) 100vw, 75vw"}"
                 src="xlarge"
                 classString="object-cover"
             />
@@ -78,20 +62,20 @@
 }
 @media (min-width: 768px) {
     .image-grid {
-        grid-template-rows: auto fit-content(50vw) 1fr;
+        grid-auto-rows: 1fr
     }
     .contents p {
         grid-column: span 4 / span 4;
         grid-column-start: 3;
     }
     .contents p:first-of-type {
-        grid-row-start: 3;
+        grid-row-start: 2;
     }
     .contents p:nth-of-type(2) {
-        grid-row-start: 5;
+        grid-row-start: 4;
     }
     .contents p:nth-of-type(3) {
-        grid-row-start: 7;
+        grid-row-start: 6;
     }
 }
 </style>
