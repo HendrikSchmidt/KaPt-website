@@ -18,7 +18,7 @@
       setTimeout(() => {
         projects[i] = {
           ...projects[i],
-          idxToShow: (projects[i].idxToShow + 1) % projects[i].imagesToShow.length,
+          idxToShow: (projects[i].idxToShow + 1) % projects[i].attributes.Images.data.length,
         };
       }, i * 1000);
     }
