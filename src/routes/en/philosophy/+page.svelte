@@ -1,12 +1,11 @@
 <script>
-  import { title } from '$lib/utils';
-  import Philosophy from '$lib/components/Philosophy.svelte';
+    import { title } from '$lib/utils';
+    import Philosophy from '$lib/components/Philosophy.svelte';
 
-  export let data;
-  let { philosophy } = data;
+    export let data;
+    let { philosophy } = data;
 
-
-  title.set('Philosophy');
+    title.set('Philosophy');
 </script>
 
-<Philosophy {philosophy} lang='en' />
+<Philosophy {philosophy} lang="en" />

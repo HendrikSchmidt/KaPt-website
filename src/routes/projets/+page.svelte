@@ -1,11 +1,11 @@
 <script>
-  import { title } from '$lib/utils';
-  import Projects from '$lib/components/Projects.svelte';
+    import { title } from '$lib/utils';
+    import Projects from '$lib/components/Projects.svelte';
 
-  export let data;
-  let projects = data.projects;
+    export let data;
+    let projects = data.projects;
 
-  title.set('Projets');
+    title.set('Projets');
 </script>
 
-<Projects {projects} lang='fr' />
+<Projects {projects} lang="fr" />

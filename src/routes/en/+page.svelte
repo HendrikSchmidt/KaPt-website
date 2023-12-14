@@ -1,11 +1,11 @@
 <script>
-	import { title } from '$lib/utils';
+    import { title } from '$lib/utils';
     import Home from '$lib/components/Home.svelte';
 
-	export let data;
-	let { home } = data;
+    export let data;
+    let { home } = data;
 
-	title.set('Home');
+    title.set('Home');
 </script>
 
-<Home {home} lang='en' />
+<Home {home} lang="en" />

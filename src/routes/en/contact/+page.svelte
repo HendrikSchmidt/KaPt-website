@@ -1,11 +1,11 @@
 <script>
-  import { title } from '$lib/utils';
-  import Contact from '$lib/components/Contact.svelte';
+    import { title } from '$lib/utils';
+    import Contact from '$lib/components/Contact.svelte';
 
-  export let data;
-  let { contact } = data;
+    export let data;
+    let { contact } = data;
 
-  title.set('Contact');
+    title.set('Contact');
 </script>
 
-<Contact {contact} lang='en' />
+<Contact {contact} lang="en" />

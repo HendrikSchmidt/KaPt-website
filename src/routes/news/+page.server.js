@@ -1,5 +1,5 @@
 import { loadDataFromApi } from '$lib/utils';
 
 export const load = ({ fetch }) => ({
-  news: loadDataFromApi(fetch, '/news?populate=*'),
+    news: loadDataFromApi(fetch, '/news?populate=*')
 });

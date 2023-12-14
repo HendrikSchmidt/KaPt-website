@@ -1,9 +1,9 @@
 <script>
-  import { page } from '$app/stores';
+    import { page } from '$app/stores';
 
-  export let href;
+    export let href;
 </script>
 
-<a {href} class="hover:italic uppercase" class:italic="{$page.url.pathname.includes(href)}">
+<a {href} class="hover:italic uppercase" class:italic={$page.url.pathname.includes(href)}>
     <slot />
 </a>
