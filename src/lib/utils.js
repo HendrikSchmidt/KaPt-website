@@ -36,7 +36,6 @@ export const markdownOptions = {
 };
 
 export const sluggify = (string) => string.replaceAll(' ', '_');
-export const desluggify = (string) => string.replaceAll('_', ' ');
 
 const getSlugsToIdsMapping = async (route, fieldToGetSlugFrom) => {
     const response = await fetch(`${apiBase}/${route}?pagination[pageSize]=100&locale=all`);
