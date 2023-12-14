@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { base } from '$app/paths';
+import { sluggify } from './utils';
 
 const localizedSlugs = {
   home: {
@@ -42,7 +43,8 @@ const getLocalizedSlug = (slug, lang=currentLang) => {
 };
 
 
-const getTranslatedSlug = (path, lang) => {
+const getTranslatedSlug = (page, lang) => {
+  const path = page.url.pathname;
   let currentPath = path.replace(base, '').replace('/en', '');
   if (currentPath === '' || currentPath === '/') {
     return getLocalizedSlug('home', lang);
@@ -52,9 +54,11 @@ const getTranslatedSlug = (path, lang) => {
   // Translate the first part which is the page name
   let pathLocation = allPathParts[0];
   let translation = getLocalizedSlug(inverseSlugMap[pathLocation], lang);
-  // Add the second part if it exists (projects)
+  // Add the second part if it exists (projects, news)
   if (allPathParts.length > 1) {
-    translation += '/' + allPathParts[1];
+    const pageObj = page.data.project ?? page.data.news;
+    const localization = pageObj.localizations.data[0].attributes;
+    translation += '/' + sluggify(localization.Nom);
   }
   return translation;
 }

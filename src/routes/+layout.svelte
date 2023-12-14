@@ -23,10 +23,10 @@
     </a>
 
     <div class="flex-0 lg:text-2xl z-20 sm:flex-1 text-right">
-      {#if $page.url.pathname.startsWith(`${base}/en`)}
-        <a class="text-zinc-400" href="{i18n.getTranslatedSlug($page.url.pathname, "fr")}">fr</a> / <span>en</span>
+      {#if currentLang === 'en'}
+        <a class="text-zinc-400" href="{i18n.getTranslatedSlug($page, 'fr')}">fr</a> / <span>en</span>
       {:else}
-        <span>fr</span> / <a class="text-zinc-400" href="{i18n.getTranslatedSlug($page.url.pathname, "en")}">en</a>
+        <span>fr</span> / <a class="text-zinc-400" href="{i18n.getTranslatedSlug($page, 'en')}">en</a>
       {/if}
     </div>
     
