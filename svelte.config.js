@@ -12,7 +12,6 @@ const config = {
         },
 
         paths: {
-            base: dev ? '' : '/KaPt-website',
             relative: false
         },
 
