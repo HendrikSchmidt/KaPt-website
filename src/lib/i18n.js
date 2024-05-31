@@ -53,6 +53,7 @@ const getTranslatedSlug = (page, lang) => {
     let translation = getLocalizedSlug(inverseSlugMap[pathLocation], lang);
     // Add the second part if it exists (projects, news)
     if (allPathParts.length > 1) {
+        // not sure whether this is needed
         try {
             const pageObj = page.data.project ?? page.data.singleNews;
             const localization = pageObj.localizations.data[0].attributes;
