@@ -25,9 +25,7 @@ export async function loadDataFromApi(fetch, apiPath) {
     try {
         return responseData.data.attributes ?? responseData.data;
     } catch (e) {
-        error(404, {
-                    message: 'Not found'
-                });
+        error(404, { message: 'Not found' });
     }
 }
 
