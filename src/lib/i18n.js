@@ -36,9 +36,9 @@ const getLocalizedSlug = (slug, lang = currentLang) => {
     try {
         return `${base}${lang === 'en' ? '/en/' : '/'}${localizedSlugs[slug][lang]}`;
     } catch (e) {
-        throw error(404, {
-            message: 'Not found'
-        });
+        error(404, {
+                    message: 'Not found'
+                });
     }
 };
 

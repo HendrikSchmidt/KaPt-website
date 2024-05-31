@@ -1,5 +1,5 @@
 import { loadDataFromApi } from '$lib/utils';
 
 export const load = async ({ fetch }) => ({
-    contact: loadDataFromApi(fetch, '/contact?locale=en')
+    contact: await loadDataFromApi(fetch, '/contact?locale=en')
 });

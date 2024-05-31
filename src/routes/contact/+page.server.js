@@ -1,5 +1,5 @@
 import { loadDataFromApi } from '$lib/utils';
 
 export const load = async ({ fetch }) => ({
-    contact: loadDataFromApi(fetch, '/contact')
+    contact: await loadDataFromApi(fetch, '/contact')
 });

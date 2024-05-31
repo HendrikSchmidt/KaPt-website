@@ -1,5 +1,5 @@
 import { loadDataFromApi } from '$lib/utils';
 
-export const load = ({ fetch }) => ({
-    home: loadDataFromApi(fetch, '/home?populate[Projets][populate]=*&populate[News][populate]=*')
+export const load = async ({ fetch }) => ({
+    home: await loadDataFromApi(fetch, '/home?populate[Projets][populate]=*&populate[News][populate]=*')
 });
