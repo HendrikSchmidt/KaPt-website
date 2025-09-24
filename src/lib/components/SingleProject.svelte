@@ -78,6 +78,15 @@
     .contents p:nth-of-type(3) {
         grid-row-start: 8;
     }
+    .contents p:nth-of-type(4) {
+        grid-row-start: 10;
+    }
+    .contents p:nth-of-type(5) {
+        grid-row-start: 12;
+    }
+    .contents p:nth-of-type(6) {
+        grid-row-start: 14;
+    }
     @media (min-width: 768px) {
         .image-grid {
             grid-auto-rows: 1fr;
@@ -94,6 +103,15 @@
         }
         .contents p:nth-of-type(3) {
             grid-row-start: 6;
+        }
+        .contents p:nth-of-type(4) {
+            grid-row-start: 8;
+        }
+        .contents p:nth-of-type(5) {
+            grid-row-start: 10;
+        }
+        .contents p:nth-of-type(6) {
+            grid-row-start: 12;
         }
     }
 </style>
